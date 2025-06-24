@@ -15,7 +15,6 @@ void main(List<String> arguments) {
 
   while (isRunning) {
     print('\n1: 상품 목록 보기');
-    print('')
     print('2: 장바구니에 상품 담기');
     print('3: 장바구니 보기');
     print('4: 종료하기');
