@@ -8,6 +8,11 @@ class Character extends Entity {
     required super.defense,
   });
 
+void defend() {
+    print('$name이(가) 방어 자세를 취합니다!');
+    // 나중에 데미지 감소 적용 가능
+  }
+
   @override
   void attack(Entity target) {
     int damage = attackPower - target.defense;
