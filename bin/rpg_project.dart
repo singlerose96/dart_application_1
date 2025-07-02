@@ -1,11 +1,12 @@
 import 'dart:io';
-import 'monster.dart';
-import 'character.dart';
-import 'monster_loader.dart';
+import 'package:dart_application_1/monster.dart';
+import 'package:dart_application_1/character.dart';
+import 'package:dart_application_1/monster_loader.dart';
+
 
 void main() async {
   print("🎮 [Dart RPG 게임에 오신 걸 환영합니다!]");
-  stdout.write("당신의 캐릭터 이름을 입력하세요: ");
+  stdout.write("캐릭터 이름을 입력하세요: ");
   String name = stdin.readLineSync() ?? '플레이어';
 
   // 캐릭터 생성
