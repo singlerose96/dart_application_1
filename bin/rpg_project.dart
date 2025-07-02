@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:dart_application_1/monster.dart';
 import 'package:dart_application_1/character.dart';
 import 'package:dart_application_1/monster_loader.dart';
+import 'package:dart_application_1/character_loader.dart';
 import 'dart:math';
 
 final logFile = File('battle_log.txt'); //전투내역저장
@@ -15,12 +16,15 @@ void main() async {
   String name = stdin.readLineSync() ?? '플레이어';
 
   // 캐릭터 생성
-  Character player = Character(
+  /**Character player = Character(
     name: name,
     hp: 100,
     attackPower: 20,
     defense: 5,
-  );
+  );**/
+
+  Character player = await createCharacterFromFile();
+
 
   // 몬스터 리스트 로드
   List<Monster> monsters = await createMonstersFromFile();
@@ -69,4 +73,5 @@ void main() async {
   if (player.hp > 0) {
     print("🌟 모든 몬스터를 물리쳤습니다! 게임 클리어!");
   }
+  exit(0); // 🎮 게임 종료
 }
