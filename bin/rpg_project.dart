@@ -18,12 +18,12 @@ void main() async {
   // 캐릭터 생성
   /**Character player = Character(
     name: name,
-    hp: 100,
-    attackPower: 20,
-    defense: 5,
+    hp: 
+    attackPower:
+    defense:
   );**/
 
-  Character player = await createCharacterFromFile();
+  Character player = await createCharacterFromFile(name);
 
 
   // 몬스터 리스트 로드
