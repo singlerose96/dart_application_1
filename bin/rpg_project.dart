@@ -62,7 +62,7 @@ void main() async {
       print("🙍‍♀️ ${player.name} HP: ${player.hp} | 🧟 ${monster.name} HP: ${monster.hp}\n");
     }
 
-    if (player.hp <= 0) { 
+    if (player.hp <= 0) { // 플레이어 패배
       print("💀 당신은 쓰러졌습니다. 게임 오버.");
       break;
     } else {
@@ -70,8 +70,27 @@ void main() async {
     }
   }
 
-  if (player.hp > 0) {
+  if (player.hp > 0) { // 플레이어 승리
     print("🌟 모든 몬스터를 물리쳤습니다! 게임 클리어!");
   }
-  exit(0); // 🎮 게임 종료
+    stdout.write("결과를 저장할까요? (y/n): ");
+  String? saveInput = stdin.readLineSync();
+
+  if (saveInput?.toLowerCase() == 'y') { //결과 저장 여부 y/n로 입력받기
+    final result = '''
+[게임 결과]
+캐릭터 이름: ${player.name}
+남은 체력: ${player.hp}
+결과: ${player.hp > 0 ? "승리" : "패배"}
+=============================
+''';
+
+    final file = File('assets/result.txt'); //결과 파일에 저장
+    await file.writeAsString(result, mode: FileMode.append);
+    print("📄 결과가 저장되었습니다. (assets/result.txt)");
+  } else {
+    print("📂 결과 저장을 건너뜁니다.");
+  }
+exit(0);
+
 }
